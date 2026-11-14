@@ -25,146 +25,101 @@
     src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
     crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/isotope-layout@2.2.2/dist/isotope.pkgd.min.js"></script>
 
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.js"></script>
-  <script src="js/respond.min.js"></script>
   <![endif]-->
 
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/modern.css">
 </head>
-<body class="page">
+<body class="is-loaded">
 
-<header class="my-header new-home-header">
-  <a class="logo-black" href="/">
-    <img src="/images/logoـblack.png">
-  </a>
-  <a class="logo-gray" href="/">
-    <img src="/images/logoـgray.png">
-  </a>
-  <div class="container">
-    <a href="https://www.instagram.com/a_ttg/" target="_blank">
-      <div class="icon-container">
-        <img src="/images/icon-insta.png" class="icon">
+<div class="progress"></div>
+<header class="site-header" id="siteHeader">
+  <a class="brand" href="/" aria-label="Ali Ghomi - home">Ali <em>Ghomi</em></a>
+  <div class="nav">
+    <div class="has-menu">
+      <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Work <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 3.5l4 4 4-4"/></svg></button>
+      <div class="menu-panel">
+<a href="/computational_design.html">Computational Design<span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
+<a href="/architectural_design.html">Architectural Design<span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
+<a href="/project_design.html">Decorative Art<span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
+<a href="/furniture_design.html">Furniture Design<span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
+<a href="/experimental_art.html">Experimental Art<span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
       </div>
-    </a>
-    <a href="https://www.linkedin.com/in/ali-t-ghomi" target="_blank">
-      <div class="icon-container">
-        <img src="/images/icon-linked-in.png" class="icon">
-      </div>
-    </a>
-    <a href="https://github.com/alitghomi" target="_blank">
-      <div class="icon-container">
-        <img src="/images/icon-git.png" class="icon">
-      </div>
-    </a>
-    <div id="nav">
-      <div class="dropdown-toggle">
-        <img class="dropdown-icon" src="/images/menu-icon.svg" alt="menu" />
-        <div class="dropdown-text">
-          WORKS
-        </div>
-      </div>
-      <ul class="dropdown">
-        <li><a href="/architectural_design.html">Architectural Design</a></li>
-        <li><a href="/project_design.html">Decorative Art</a></li>
-        <li><a href="/furniture_design.html">Furniture Design</a></li>
-        <li><a href="/computational_design.html">Computational Design</a></li>
-        <li><a href="/experimental_art.html">Experimental Art</a></li>
-
-        
-      </ul>
     </div>
-    <a class="about" href="/about.html">
-      ABOUT
-    </a>
+    <a class="nav-link" href="/about.html">About</a>
+    <a class="pill" href="https://www.linkedin.com/in/ali-t-ghomi" target="_blank" rel="noopener">Contact <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
   </div>
+  <button class="icon-btn burger" aria-label="Menu" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h14M2 12h14"/></svg></button>
 </header>
-<div class="header-support"></div>
-
-
-<div class="body-wrapper">
-
-  <div id="content" class="site-content">
-    <article>
-      <div class="content-1330 center-relative">
-
-        <div class="clear"></div>
-        <div class="grid" id="portfolio">
-          
-          <div class="grid-sizer"></div>
-          <div class="grid-item element-item p_one_third home-page-img">
-            <a href="projects/RIPPLE/details.html">
-              <img src="projects/RIPPLE/homePageImages/RIPPLE.png" alt="">
-              <div class="portfolio-text-holder">
-                <p>RIPPLE COLLECTION</p>
-              </div>
-            </a>
-          </div>
-
-          <div class="grid-item element-item p_one_third home-page-img">
-            <a href="projects/PHAROAH/details.html">
-              <img src="projects/PHAROAH/homePageImages/PHAROAH.png" alt="">
-              <div class="portfolio-text-holder">
-                <p>PHAROAH COLLECTION</p>
-              </div>
-            </a>
-          </div>
-          <div class="grid-item element-item p_one_third home-page-img">
-            <a href="projects/BLOOM/details.html">
-              <img src="projects/BLOOM/homePageImages/BLOOM.png" alt="">
-              <div class="portfolio-text-holder">
-                <p>BLOOM COLLECTION</p>
-              </div>
-            </a>
-          </div>
-
-          <div class="grid-item element-item p_one_third home-page-img">
-            <a href="projects/SAHARA_VASE/details.html">
-              <img src="projects/SAHARA_VASE/homePageImages/SAHARA.png" alt="">
-              <div class="portfolio-text-holder">
-                <p>SAHARA VASE</p>
-              </div>
-            </a>
-          </div>
-          <div class="grid-item element-item p_one_third home-page-img">
-            <a href="projects/THE_VAIL/details.html">
-              <img src="projects/THE_VAIL/homePageImages/THE_VAIL.png" alt="">
-              <div class="portfolio-text-holder">
-                <p>THE VAIL</p>
-              </div>
-            </a>
-          </div>
-        </div>
-      
-
-
-        <div class="clear"></div>
-      </div>
-    </article>
+<div class="mobile-menu" aria-label="Menu">
+  <nav>
+    <a href="/">Home</a>
+<a href="/computational_design.html">Computational Design</a>
+<a href="/architectural_design.html">Architectural Design</a>
+<a href="/project_design.html">Decorative Art</a>
+<a href="/furniture_design.html">Furniture Design</a>
+<a href="/experimental_art.html">Experimental Art</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <div>
+    <div class="mm-sub">Elsewhere</div>
+    <div class="mm-social"><a href="https://www.instagram.com/a_ttg/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/ali-t-ghomi" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/alitghomi" target="_blank" rel="noopener">GitHub</a></div>
   </div>
-
-
-  <!-- End .body-border -->
 </div>
 
-
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Selected work</span>
+      <h1><span class="line"><span>Decorative <em>Art</em></span></span></h1>
+      <div class="meta"><span>5 projects</span><span>Ali Tabatabaie Ghomi</span></div>
+    </div>
+  </section>
+  <div class="wrap">
+    <div class="work-grid">
+      <a class="work-card" href="/projects/RIPPLE/details.html">
+        <div class="media"><img src="/projects/RIPPLE/homePageImages/RIPPLE.png" alt="Ripple Collection" loading="lazy"></div>
+        <div class="card-meta"><span class="card-title">RIPPLE COLLECTION</span><span class="card-idx">01</span></div>
+      </a>
+      <a class="work-card" href="/projects/PHAROAH/details.html">
+        <div class="media"><img src="/projects/PHAROAH/homePageImages/PHAROAH.png" alt="Pharoah Collection" loading="lazy"></div>
+        <div class="card-meta"><span class="card-title">PHAROAH COLLECTION</span><span class="card-idx">02</span></div>
+      </a>
+      <a class="work-card" href="/projects/BLOOM/details.html">
+        <div class="media"><img src="/projects/BLOOM/homePageImages/BLOOM.png" alt="Bloom Collection" loading="lazy"></div>
+        <div class="card-meta"><span class="card-title">BLOOM COLLECTION</span><span class="card-idx">03</span></div>
+      </a>
+      <a class="work-card" href="/projects/SAHARA_VASE/details.html">
+        <div class="media"><img src="/projects/SAHARA_VASE/homePageImages/SAHARA.png" alt="Sahara Vase" loading="lazy"></div>
+        <div class="card-meta"><span class="card-title">SAHARA VASE</span><span class="card-idx">04</span></div>
+      </a>
+      <a class="work-card" href="/projects/THE_VAIL/details.html">
+        <div class="media"><img src="/projects/THE_VAIL/homePageImages/THE_VAIL.png" alt="The Vail" loading="lazy"></div>
+        <div class="card-meta"><span class="card-title">THE VAIL</span><span class="card-idx">05</span></div>
+      </a>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="eyebrow">Get in touch</span>
+    <div class="footer-big" data-reveal>Have a project<br><em>in mind?</em></div>
+    <a class="btn" href="https://www.linkedin.com/in/ali-t-ghomi" target="_blank" rel="noopener">LinkedIn Contact <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+    <div class="footer-row">
+      <span>&copy; Ali Tabatabaie Ghomi</span>
+      <nav>
+        <a href="https://www.instagram.com/a_ttg/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/in/ali-t-ghomi" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/alitghomi" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </div>
+</footer>
 
 <!--Load JavaScript-->
-<script src="js/vendor/modernizr-3.11.2.min.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/jquery.js"></script>
-<script src='js/jquery.fitvids.js'></script>
-<script src='js/jquery.smartmenus.min.js'></script>
-<script src='js/imagesloaded.pkgd.js'></script>
-<script src='js/jquery.carouFredSel-6.0.0-packed.js'></script>
-<script src='js/jquery.mousewheel.min.js'></script>
-<script src='js/jquery.touchSwipe.min.js'></script>
-<script src='js/jquery.easing.1.3.js'></script>
-<script src='js/jquery.prettyPhoto.js'></script>
-<script src='js/jquery.ba-throttle-debounce.min.js'></script>
-<script src='js/main.js'></script>
-<script src='js/jiri.js'></script>
-<script src='js/overlay.js'></script>
+<script src="/js/modern.js"></script>
 </body>
 </html>

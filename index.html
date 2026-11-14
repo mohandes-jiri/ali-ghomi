@@ -51,7 +51,11 @@
 
 <main>
   <section class="hero" id="top">
-    <canvas id="sculpture" data-slides="/images/home-slider/1.jpg,/images/home-slider/2.jpg" aria-label="Project photos rendered as an interactive point cloud - move the cursor across it" role="img"></canvas>
+    <canvas id="sculpture" aria-label="Project photos rendered as an interactive point cloud - move the cursor across it" role="img"></canvas>
+    <div class="hero-slides" hidden aria-hidden="true"><!-- hero photos used by the point cloud: add/remove <img> tags here -->
+      <img src="/images/home-slider/1.jpg" alt="" loading="lazy">
+      <img src="/images/home-slider/2.jpg" alt="" loading="lazy">
+    </div>
     <div class="slide-count"><b>01</b> / 02</div>
     <div class="wrap hero-copy">
       <span class="eyebrow">Designer &amp; Architect</span>

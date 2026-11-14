@@ -457,7 +457,9 @@
   }
 
   if (cv && cv.getContext) {
-    var slidesAttr = cv.getAttribute('data-slides');
-    if (slidesAttr) initPhotoCloud(slidesAttr.split(',')); else initKnot();
+    // Slides come from real <img> tags so bundlers (e.g. Parcel) include and hash them
+    var slideSrcs = $$('.hero-slides img').map(function (im) { return im.getAttribute('src'); });
+    if (!slideSrcs.length && cv.getAttribute('data-slides')) slideSrcs = cv.getAttribute('data-slides').split(',');
+    if (slideSrcs.length) initPhotoCloud(slideSrcs); else initKnot();
   }
 })();

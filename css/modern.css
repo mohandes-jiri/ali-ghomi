@@ -340,3 +340,35 @@ body.page .carousel_pagination a.selected, body.page .slider1_pagination a.selec
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   [data-reveal], .line > span { opacity: 1 !important; transform: none !important; }
 }
+
+/* ---------- CATEGORY pages: circle-packed grid (three circle sizes) ---------- */
+.work-grid.is-packed { display: block; position: relative; }
+.work-grid.is-packed .work-card { position: absolute; display: block; }
+.work-grid.is-packed .work-card .media {
+  width: 100%; height: 100%; aspect-ratio: 1 / 1; border-radius: 50%;
+}
+.work-grid.is-packed .work-card .media::after { border-radius: 50%; }
+.work-grid.is-packed .work-card .card-meta {
+  position: absolute; inset: auto 0 0 0; z-index: 2; padding: 0 14% 17%;
+  flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; text-align: center;
+  pointer-events: none; color: #fff; text-shadow: 0 1px 10px rgba(0,0,0,.65), 0 0 2px rgba(0,0,0,.5);
+}
+.work-grid.is-packed .work-card::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; border-radius: 50%; pointer-events: none;
+  background: linear-gradient(to top, rgba(14,14,13,.85) 0%, rgba(14,14,13,.45) 42%, transparent 72%);
+  transition: opacity .6s var(--ease);
+}
+.work-grid.is-packed .work-card .card-title { font-size: clamp(12px, 1.5vw, 20px); line-height: 1.12; transform: none !important; }
+.work-grid.is-packed .work-card .card-idx { color: var(--accent); font-size: 11px; }
+.work-grid.is-packed .size-S .card-title { font-size: clamp(9px, 1vw, 12.5px); letter-spacing: -.01em; }
+.work-grid.is-packed .size-S .card-meta { padding: 0 12% 15%; gap: 2px; }
+.work-grid.is-packed .size-S .card-idx { display: none; }
+@media (max-width: 560px) {
+  .work-grid.is-packed .work-card .card-title { font-size: 14px; }
+  .work-grid.is-packed .size-S .card-title { font-size: 11px; }
+}
+
+/* B&W by default, colour on hover */
+.media { position: relative; }
+.media img.img-color { position: absolute; inset: 0; opacity: 0; transition: opacity .6s var(--ease), transform 1.4s var(--ease); }
+.work-card:hover .media img.img-color { opacity: 1; }

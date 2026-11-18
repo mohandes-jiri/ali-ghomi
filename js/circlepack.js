@@ -4,9 +4,9 @@
    regular grid is left untouched. */
 (function () {
   'use strict';
-  var grid = document.querySelector('.work-grid');
-  if (!grid) return;
-  var cards = Array.prototype.slice.call(grid.querySelectorAll('.work-card'));
+  Array.prototype.forEach.call(document.querySelectorAll('.work-grid, .recent'), init);
+  function init(grid) {
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.work-card, .recent-card'));
   if (!cards.length) return;
 
   // Size pattern (L / M / S), cycled so every page gets a mix of all three.
@@ -27,7 +27,7 @@
   function fractions(W) {
     return W < 560 ? { L: 0.64, M: 0.46, S: 0.32 }
          : W < 900 ? { L: 0.46, M: 0.32, S: 0.22 }
-         :           { L: 0.33, M: 0.235, S: 0.16 };
+         : (function (k, ks) { return { L: 0.33 * k, M: 0.235 * k, S: 0.16 * ks }; })(parseFloat(grid.getAttribute('data-scale')) || 1, parseFloat(grid.getAttribute('data-scale-s')) || parseFloat(grid.getAttribute('data-scale')) || 1);
   }
 
   function hit(x, y, R, placed) {
@@ -45,10 +45,10 @@
     var x = (ra * ra - rb * rb + d * d) / (2 * d), h2 = ra * ra - x * x;
     if (h2 < 0) return;
     var h = Math.sqrt(h2), mx = a.x + dx * x / d, my = a.y + dy * x / d;
-    out.push({ x: mx + dy * h / d, y: my - dx * h / d }, { x: mx - dy * h / d, y: my + dx * h / d });
+    out.push({ x: mx + dy * h / d, y: my - dx * h / d, t: 1 }, { x: mx - dy * h / d, y: my + dx * h / d, t: 1 });
   }
 
-  function pack(radii, W, gap) {
+  function pack(radii, W, gap, nest) {
     var placed = [];
     radii.forEach(function (r) {
       var R = r + gap / 2, cand = [];
@@ -67,7 +67,9 @@
           tangentPoints(placed[i], placed[i].R + R, placed[j], placed[j].R + R, cand);
 
       var best = null, bestScore = Infinity;
+      var nested = nest && cand.some(function (c) { return c.t && c.x >= R - 0.01 && c.x <= W - R + 0.01 && c.y >= R - 0.01 && !hit(c.x, c.y, R, placed); });
       cand.forEach(function (c) {
+        if (nested && !c.t) return;
         if (c.x < R - 0.01 || c.x > W - R + 0.01 || c.y < R - 0.01) return;
         if (hit(c.x, c.y, R, placed)) return;
         var score = c.y + c.x * 0.02;
@@ -87,7 +89,7 @@
     if (!W) return;
     var f = fractions(W), gap = Math.max(10, W * 0.012);
     var radii = sizes.map(function (s) { return f[s] * W / 2; });
-    var placed = pack(radii, W, gap);
+    var placed = pack(radii, W, gap, grid.hasAttribute('data-nest'));
 
     // centre the cluster horizontally, trim vertical extent
     var minX = Infinity, maxX = -Infinity, maxY = 0;
@@ -115,4 +117,5 @@
   }
   if ('ResizeObserver' in window) new ResizeObserver(schedule).observe(grid);
   else window.addEventListener('resize', schedule);
+  }
 })();

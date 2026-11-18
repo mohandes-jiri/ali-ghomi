@@ -343,12 +343,23 @@ body.page .carousel_pagination a.selected, body.page .slider1_pagination a.selec
 
 /* ---------- CATEGORY pages: circle-packed grid (three circle sizes) ---------- */
 .work-grid.is-packed { display: block; position: relative; }
+.recent.is-packed { display: block; position: relative; }
 .work-grid.is-packed .work-card { position: absolute; display: block; }
+.recent.is-packed .recent-card { position: absolute; display: block; }
 .work-grid.is-packed .work-card .media {
   width: 100%; height: 100%; aspect-ratio: 1 / 1; border-radius: 50%;
 }
+.recent.is-packed .recent-card .media {
+  width: 100%; height: 100%; aspect-ratio: 1 / 1; border-radius: 50%;
+}
 .work-grid.is-packed .work-card .media::after { border-radius: 50%; }
+.recent.is-packed .recent-card .media::after { border-radius: 50%; }
 .work-grid.is-packed .work-card .card-meta {
+  position: absolute; inset: auto 0 0 0; z-index: 2; padding: 0 14% 17%;
+  flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; text-align: center;
+  pointer-events: none; color: #fff; text-shadow: 0 1px 10px rgba(0,0,0,.65), 0 0 2px rgba(0,0,0,.5);
+}
+.recent.is-packed .recent-card .card-meta {
   position: absolute; inset: auto 0 0 0; z-index: 2; padding: 0 14% 17%;
   flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; text-align: center;
   pointer-events: none; color: #fff; text-shadow: 0 1px 10px rgba(0,0,0,.65), 0 0 2px rgba(0,0,0,.5);
@@ -358,11 +369,21 @@ body.page .carousel_pagination a.selected, body.page .slider1_pagination a.selec
   background: linear-gradient(to top, rgba(14,14,13,.85) 0%, rgba(14,14,13,.45) 42%, transparent 72%);
   transition: opacity .6s var(--ease);
 }
+.recent.is-packed .recent-card::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; border-radius: 50%; pointer-events: none;
+  background: linear-gradient(to top, rgba(14,14,13,.85) 0%, rgba(14,14,13,.45) 42%, transparent 72%);
+  transition: opacity .6s var(--ease);
+}
 .work-grid.is-packed .work-card .card-title { font-size: clamp(12px, 1.5vw, 20px); line-height: 1.12; transform: none !important; }
+.recent.is-packed .recent-card .card-title { font-size: clamp(12px, 1.5vw, 20px); line-height: 1.12; transform: none !important; }
 .work-grid.is-packed .work-card .card-idx { color: var(--accent); font-size: 11px; }
+.recent.is-packed .recent-card .card-idx { color: var(--accent); font-size: 11px; }
 .work-grid.is-packed .size-S .card-title { font-size: clamp(9px, 1vw, 12.5px); letter-spacing: -.01em; }
+.recent.is-packed .size-S .card-title { font-size: clamp(9px, 1vw, 12.5px); letter-spacing: -.01em; }
 .work-grid.is-packed .size-S .card-meta { padding: 0 12% 15%; gap: 2px; }
+.recent.is-packed .size-S .card-meta { padding: 0 12% 15%; gap: 2px; }
 .work-grid.is-packed .size-S .card-idx { display: none; }
+.recent.is-packed .size-S .card-idx { display: none; }
 @media (max-width: 560px) {
   .work-grid.is-packed .work-card .card-title { font-size: 14px; }
   .work-grid.is-packed .size-S .card-title { font-size: 11px; }
@@ -372,3 +393,28 @@ body.page .carousel_pagination a.selected, body.page .slider1_pagination a.selec
 .media { position: relative; }
 .media img.img-color { position: absolute; inset: 0; opacity: 0; transition: opacity .6s var(--ease), transform 1.4s var(--ease); }
 .work-card:hover .media img.img-color { opacity: 1; }
+
+/* Home "Recent works" as circles, titles overlaid like the work grid */
+.recent-card .media, .recent-card .media::after { border-radius: 50%; }
+.recent-card::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; border-radius: 50%; pointer-events: none;
+  aspect-ratio: 1 / 1; background: linear-gradient(to top, rgba(14,14,13,.85) 0%, rgba(14,14,13,.45) 42%, transparent 72%);
+}
+.recent-card .card-meta {
+  position: absolute; inset: auto 0 0 0; z-index: 2; padding: 0 14% 17%;
+  flex-direction: column; align-items: center; justify-content: flex-end; text-align: center;
+  pointer-events: none; color: #fff; text-shadow: 0 1px 10px rgba(0,0,0,.65), 0 0 2px rgba(0,0,0,.5);
+}
+.recent-card .card-title { font-size: clamp(14px, 1.8vw, 24px); line-height: 1.12; }
+
+/* Recent works: grayscale until hover, title kept inside the circle */
+.recent-card .media img { filter: grayscale(1); transition: transform 1.4s var(--ease), filter .6s var(--ease); }
+.recent-card:hover .media img { filter: grayscale(0); }
+.recent-card::before { aspect-ratio: auto; }
+.recent-card .card-meta { bottom: 0; left: 0; right: 0; width: 100%; max-width: 100%; }
+.recent { align-items: start; }
+.recent-card { aspect-ratio: 1 / 1; }
+
+.recent.is-packed { display: block; position: relative; }
+.recent.is-packed .recent-card { margin-top: 0 !important; aspect-ratio: auto; }
+.recent.is-packed .recent-card::before { aspect-ratio: auto; }
